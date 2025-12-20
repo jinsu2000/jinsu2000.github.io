@@ -1,0 +1,78 @@
+Docker Compose 部署 Meshsense 服务教程
+1. 环境准备
+1.1 安装 Docker 和 Docker Compose
+•	Linux（Ubuntu/Debian）：
+bash
+sudo apt-get update
+sudo apt-get install -y docker.io docker-compose
+sudo systemctl enable --now docker
+•	macOS：通过 Docker Desktop 安装。
+•	Windows：通过 WSL2 + Docker Desktop 安装。
+1.2 验证安装
+bash
+docker --version
+docker-compose --version
+
+2. 创建 Docker Compose 文件
+2.1 新建项目目录
+bash
+mkdir meshsense-project && cd meshsense-project
+2.2 编写 docker-compose.yml
+使用以下内容创建文件（复制到项目目录）：
+services:
+  meshsense:
+    image: ghcr.io/roperscrossroads/meshsense-docker-arm64:main
+    container_name: meshsense
+    ports:
+      - "5920:5920"
+    environment:
+      - PORT=5920
+      - HOST=0.0.0.0
+      - ACCESS_KEY=password  # 默认值可以自行修改
+      - DISPLAY=:99
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - meshsense-data:/home/mesh/.meshsense
+      - /run/dbus:/run/dbus:ro  # 仅Linux需要
+    restart: unless-stopped
+    user: "1000:1000"
+    labels:
+      project: meshsense
+    # 仅当需要手动指定平台时取消注释（通常不需要）
+    # platform: linux/arm64  # 或 linux/amd64
+ 
+volumes:
+  meshsense-data: #定义持久化存储的，如果不清楚直接不管就OK
+
+3. 配置修改
+3.1 修改默认访问密钥
+•	编辑 docker-compose.yml，修改 ACCESS_KEY 为强密码：
+yaml
+environment:
+- ACCESS_KEY=YourStrongPassword123!
+3.2 指定平台架构（可选）
+•	如果主机与容器架构不匹配（如x86主机运行arm64镜像），取消注释以下行：
+yaml
+platform: linux/arm64
+3.3 调整端口映射（可选）
+•	若端口 5920 被占用，修改为其他端口（如 8080:5920）：
+yaml
+ports:
+- "8080:5920"
+
+4. 启动服务
+4.1 启动容器
+bash
+docker-compose up -d
+•	-d 表示后台运行。
+4.2 验证状态
+bash
+docker-compose ps
+docker logs meshsense # 查看日志
+•	正常输出应显示 meshsense running on port 5920。
+
+5. 访问服务
+5.1 Web 界面
+•	浏览器访问：http://<主机IP>:5920
+•	输入 ACCESS_KEY 配置的密码登录。

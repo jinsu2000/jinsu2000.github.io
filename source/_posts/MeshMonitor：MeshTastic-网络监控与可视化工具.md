@@ -1,0 +1,93 @@
+---
+title: MeshMonitor：MeshTastic 网络监控与可视化工具
+date: 2025-12-19
+tags:
+categories: meshtastic
+---
+MeshMonitor：MeshTastic 网络监控与可视化工具
+项目简介
+MeshMonitor 是由 Yeraze 开发的开源项目，专为 MeshTastic 网络设计的一款实时监控与可视化工具。MeshMonitor 通过简洁的 Web 界面，帮助用户直观监控 MeshTastic 网络中的节点状态、消息传递及网络拓扑结构。
+
+{% asset_img image1.png "MeshMonitor主界面" %}  
+核心功能
+•	实时节点监控：显示在线/离线状态、信号强度、电池电量等关键指标。
+•	消息日志查看：记录并展示节点间的通信内容。
+•	网络拓扑图：动态展示节点间的连接关系，辅助分析网络覆盖。
+•	多设备支持：兼容不同型号的 MeshTastic 硬件设备，同时兼容串口、tcp、蓝牙。
+•	跨平台访问：通过浏览器即可访问，支持移动端适配。
+•	机器人：自带简易机器人功能
+•	外部提醒：监控网络状态，通过邮件等方式提醒
+•	页面好看(♥∀♥)
+
+{% asset_img image2.png "MeshMonitor功能界面" %}
+技术特点
+•	轻量级容器化部署：基于 Docker 构建，支持快速部署与扩展。
+•	低资源占用：优化后的后端服务适合在树莓派等嵌入式设备运行。
+•	数据持久化：支持临时或永久存储配置，确保监控数据不丢失。
+安装与配置
+MeshMonitor 提供两种部署方式，用户可根据需求选择临时存储或永久存储方案。
+1. 临时存储方案（基于 Docker 卷）
+适用场景：快速测试、短期使用或数据可丢失的环境。
+优点：无需手动管理主机路径，数据存储在 Docker 管理的卷中。
+缺点：容器删除后数据会丢失。
+安装步骤
+1.	确保已安装 Docker 和 Docker Compose。
+2.	创建 docker-compose.yml 文件，内容如下：
+yaml
+services:
+  meshmonitor:
+    image: ghcr.io/yeraze/meshmonitor:latest
+    container_name: meshmonitor
+    ports:
+      - "8080:3001"
+    restart: unless-stopped
+    volumes:
+      - meshmonitor-data:/data
+    environment:
+      - MESHTASTIC_NODE_IP=192.168.1.101  # 修改为你的 MeshTastic 节点 IP
+      - TZ=Asia/Shanghai
+      - ALLOWED_ORIGINS=http://localhost:8080,http://192.168.1.100:8080  # CORS 配置
+
+volumes:
+  meshmonitor-data:
+3.	启动服务：
+bash
+docker-compose up -d
+4.	访问 http://localhost:8080 或指定 IP 端口。
+2. 永久存储方案（指定主机路径）
+适用场景：长期运行、需要保留监控数据的环境。
+优点：数据存储在主机指定路径，即使容器重建也不会丢失。
+缺点：需手动管理路径权限。
+安装步骤
+1.	确保主机上存在目标路径（如 /mnt/user/appdata/meshmonitordata），并赋予 Docker 用户读写权限。
+2.	创建 docker-compose.yml 文件，内容如下：
+yaml
+services:
+  meshmonitor:
+    image: ghcr.io/yeraze/meshmonitor:latest
+    container_name: meshmonitor
+    ports:
+      - "8080:3001"
+    restart: unless-stopped
+    volumes:
+      - /mnt/user/appdata/meshmonitordata:/data  # 修改为你的主机路径
+    environment:
+      - MESHTASTIC_NODE_IP=192.168.1.101
+      - TZ=Asia/Shanghai
+      - ALLOWED_ORIGINS=http://localhost:8080,http://192.168.1.100:8080
+
+# 删除原有卷定义（改用直接路径挂载）
+3.	启动服务：
+bash
+docker-compose up -d
+环境变量配置说明
+变量名	说明
+MESHTASTIC_NODE_IP	MeshTastic 节点的 IP 地址，需根据实际网络修改。
+TZ	时区设置（如 Asia/Shanghai），确保日志时间准确。
+ALLOWED_ORIGINS	允许访问 MeshMonitor 的域名列表（逗号分隔），用于 CORS 安全配置。
+总结
+MeshMonitor 为 MeshTastic 用户提供了一个高效、易用的监控平台，无论是临时测试还是长期部署，都能通过简单的 Docker Compose 配置快速上手。通过可视化界面，用户可以更直观地管理无线通信网络，提升户外活动的安全性与效率。
+项目地址：GitHub - Yeraze/meshmonitor
+镜像仓库：ghcr.io/yeraze/meshmonitor
+
+

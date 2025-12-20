@@ -1,0 +1,35 @@
+在Unraid的Docker上部署PotatoMesh及相关服务，以下是具体操作指南：
+
+一、部署PotatoMeshweb
+下载镜像
+在Unraid的Docker标签页中，点击“添加容器”，选择“自定义URL”，输入PotatoMeshweb镜像地址：ghcr.io/l5yth/potato-mesh-web-linux-amd64:latest
+网络配置
+默认主机网络：PotatoMesh默认使用主机网络，无需端口映射。在Unraid的“网络类型”中选择host，确保容器直接共享主机网络栈。
+桥接网络（可选）： 
+在Unraid的“环境变量”部分添加以下变量（根据需求调整默认值）：
+SITE_NAME=Meshtastic Berlin
+DEFAULT_CHANNEL=#MediumFast
+DEFAULT_FREQUENCY=868MHz
+MAP_CENTER_LAT=52.502889
+MAP_CENTER_LON=13.404194 #地图中心点经纬度
+MAX_NODE_DISTANCE_KM=137
+MATRIX_ROOM=#meshtastic-berlin:matrix.org
+API_TOKEN=1eb140fd-cab4-40be-b862-41c607762246  # 替换为自定义Token
+二、部署Python摄取器
+容器在Unraid的Docker标签页中，点击“添加容器”，选择“自定义URL”，输入PotatoMesh ingestor的Docker镜像地址：ghcr.io/l5yth/potato-mesh-ingestor-linux-amd64:latest
+环境变量与配置
+在Unraid的“环境变量”中添加：
+POTATOMESH_INSTANCE=http://<Unraid_IP>:41447  # 替换为Unraid主机IP
+API_TOKEN=1eb140fd-cab4-40be-b862-41c607762246 #与PotatoMeshweb中设置的相同
+MESH_SERIAL=/dev/ttyACM0  # 或远程设备IP（如192.168.1.20:4403）
+DEBUG=1
+设备映射
+若通过串口连接Meshtastic节点，需在Unraid的“设备映射”中添加：
+主机设备：/dev/ttyACM0
+容器设备：/dev/ttyACM0
+四、验证与调试
+检查服务状态
+访问http://< IP>:41447，确认Web应用界面加载正常。
+查看容器日志（Unraid的“日志”标签页），检查是否有错误（如端口冲突、依赖缺失）。
+Python摄取器调试
+若数据未上传，检查mesh.sh的日志输出，确认串口或TCP连接正常。
