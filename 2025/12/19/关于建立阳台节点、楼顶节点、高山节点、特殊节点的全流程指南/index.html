@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jinsu2000.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="关于建立阳台节点、楼顶节点、高山节点、特殊节点的全流程指南如题，本文将介绍以上类型节点的设备选择及选址的相关事宜。一、	阳台节点设备：通常建议选择带WiFi的设备，既esp32➕sx126x的组合。最便宜的设备为盗版合宙esp32c3开发版加大夏lr30模块，可以使用飞线连接或者群内kk大佬的电路板。常用的成品为heltecv3，但WiFi蓝牙信号较差，动手能力强的可以用30mm铜线代替原有弹簧天">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于建立阳台节点、楼顶节点、高山节点、特殊节点的全流程指南">
+<meta property="og:url" content="https://jinsu2000.github.io/2025/12/19/%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%8B%E9%98%B3%E5%8F%B0%E8%8A%82%E7%82%B9%E3%80%81%E6%A5%BC%E9%A1%B6%E8%8A%82%E7%82%B9%E3%80%81%E9%AB%98%E5%B1%B1%E8%8A%82%E7%82%B9%E3%80%81%E7%89%B9%E6%AE%8A%E8%8A%82%E7%82%B9%E7%9A%84%E5%85%A8%E6%B5%81%E7%A8%8B%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="jinsu的博客">
+<meta property="og:description" content="关于建立阳台节点、楼顶节点、高山节点、特殊节点的全流程指南如题，本文将介绍以上类型节点的设备选择及选址的相关事宜。一、	阳台节点设备：通常建议选择带WiFi的设备，既esp32➕sx126x的组合。最便宜的设备为盗版合宙esp32c3开发版加大夏lr30模块，可以使用飞线连接或者群内kk大佬的电路板。常用的成品为heltecv3，但WiFi蓝牙信号较差，动手能力强的可以用30mm铜线代替原有弹簧天">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-19T13:48:41.000Z">
+<meta property="article:modified_time" content="2025-12-20T11:14:17.681Z">
+<meta property="article:author" content="jinsu">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://jinsu2000.github.io/2025/12/19/%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%8B%E9%98%B3%E5%8F%B0%E8%8A%82%E7%82%B9%E3%80%81%E6%A5%BC%E9%A1%B6%E8%8A%82%E7%82%B9%E3%80%81%E9%AB%98%E5%B1%B1%E8%8A%82%E7%82%B9%E3%80%81%E7%89%B9%E6%AE%8A%E8%8A%82%E7%82%B9%E7%9A%84%E5%85%A8%E6%B5%81%E7%A8%8B%E6%8C%87%E5%8D%97/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jinsu2000.github.io/2025/12/19/%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%8B%E9%98%B3%E5%8F%B0%E8%8A%82%E7%82%B9%E3%80%81%E6%A5%BC%E9%A1%B6%E8%8A%82%E7%82%B9%E3%80%81%E9%AB%98%E5%B1%B1%E8%8A%82%E7%82%B9%E3%80%81%E7%89%B9%E6%AE%8A%E8%8A%82%E7%82%B9%E7%9A%84%E5%85%A8%E6%B5%81%E7%A8%8B%E6%8C%87%E5%8D%97/","path":"2025/12/19/关于建立阳台节点、楼顶节点、高山节点、特殊节点的全流程指南/","title":"关于建立阳台节点、楼顶节点、高山节点、特殊节点的全流程指南"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>关于建立阳台节点、楼顶节点、高山节点、特殊节点的全流程指南 | jinsu的博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">jinsu的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">替meshcn写了篇文章，顺便就建个博客吧。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">jinsu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jinsu2000.github.io/2025/12/19/%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%8B%E9%98%B3%E5%8F%B0%E8%8A%82%E7%82%B9%E3%80%81%E6%A5%BC%E9%A1%B6%E8%8A%82%E7%82%B9%E3%80%81%E9%AB%98%E5%B1%B1%E8%8A%82%E7%82%B9%E3%80%81%E7%89%B9%E6%AE%8A%E8%8A%82%E7%82%B9%E7%9A%84%E5%85%A8%E6%B5%81%E7%A8%8B%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jinsu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jinsu的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="关于建立阳台节点、楼顶节点、高山节点、特殊节点的全流程指南 | jinsu的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          关于建立阳台节点、楼顶节点、高山节点、特殊节点的全流程指南
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-19 21:48:41" itemprop="dateCreated datePublished" datetime="2025-12-19T21:48:41+08:00">2025-12-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-20 19:14:17" itemprop="dateModified" datetime="2025-12-20T19:14:17+08:00">2025-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/meshtastic/" itemprop="url" rel="index"><span itemprop="name">meshtastic</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>关于建立阳台节点、楼顶节点、高山节点、特殊节点的全流程指南<br>如题，本文将介绍以上类型节点的设备选择及选址的相关事宜。<br>一、	阳台节点<br>设备：通常建议选择带WiFi的设备，既esp32➕sx126x的组合。最便宜的设备为盗版合宙esp32c3开发版加大夏lr30模块，可以使用飞线连接或者群内kk大佬的电路板。常用的成品为heltecv3，但WiFi蓝牙信号较差，动手能力强的可以用30mm铜线代替原有弹簧天线。建议将设备放置于防水86盒或其他类型防水盒中，直接通过usb口供电。天线及供电接口可用3m胶泥与电工胶布缠绕防水。天线推荐羊角天线。将羊角天线粘在PVC管一段，馈线通过管内从另一端伸出，接在设备上。并将天线伸出防盗网。<br>节点作用：稳定获取mesh网络中的信息，同时可以通过打洞（例如蒲公英、tailscale等）在外网访问。或可将设备稳定的接入homeassistant。<br>二、高楼楼顶太阳能节点<br>设备 低成本diy的话推荐参考本人在meshcn上投稿的相关文章，成品推荐GAT562 Mesh Solar Relay（建议电工胶缠绕加强防水）。若光照条件不好可以选择GAT562 Mesh EVB Pro外壳套装<br>节点作用：扩大通联范围<br>具体位置选择：</p>
+<ol>
+<li>楼高优势与视野覆盖<br>优先选择高度超过周边建筑平均层高30%以上的楼顶（如周边普遍以6层住宅为主，则优先18层以上建筑）。通过三维地图工具（如Google Earth）模拟视角，确保节点在白天大部分时间段未被周围高楼遮挡住太阳光。（如果太阳能板够大那不必太在意遮挡）</li>
+<li>金属结构干扰规避<br>楼顶电梯机房、楼顶金属装饰件（围栏）等金属构件会形成电磁屏蔽效应，导致信号衰减。选址时应保持与金属结构至少2米间距。同时避免安置在有倾斜角的金属周围，防止多径效引发的误码。</li>
+<li>高楼群空间关系分析<br>利用工具（如SunCalc）确认节点全年不会被楼顶周围结构的阴影遮挡。<br>三、山林太阳能节点<br>设备选择：同楼顶太阳能节点。<br>作用：扩大通联范围<br>具体位置选择：</li>
+<li>等高线解读与山形识别<br>•	山顶：高度最高，一般为最优选择，但通常情况山顶会有建筑，人群相对密集，难以寻找到合适的位置。<br>•	山脊线优先：沿等高线凸向低处的山脊部署，可同时满足光照条件好和信号不被遮挡。<br>•	鞍部避让：两个山头之间的鞍部地形易形成信号盲区，尽量避让。但如果信号可以覆盖目标区域，也可以选择安置在此。<br>•	冲沟规避：等高线呈”V”字形下切的冲沟地带易积水，且冬季积雪覆盖时间比平地长7-10天，应保持50米以上安全距离。</li>
+<li>卫星地图筛选<br>•	植被分析：利用卫星地图识别植被相对稀疏的地区。<br>•	人工设施识别：通过地图表示排除人工设施区域，例如高压线走廊等。<br>•	水体反射利用：在湖泊500米范围内部署时，可利用水面反射增加冬季光照强度，但需防范晨雾导致的设备冷凝。</li>
+<li>山体形态适配性部署<br>•	南坡优选：在北半球选择坡向135°-225°（正南±45°）的阳坡，可比阴坡获得多40%的年辐射量。实际部署时需结合坡度修正，当坡度＞30°时，需采用可调角度支架保持设备水平。<br>四、特殊节点<br>设备选择：femtofox或其他linux系统节点<br>作用：玩点花的……<br>meshing-around：</li>
+<li>   智能关键词响应：<br>•	自动响应：机器人能够检测关键词（如”ping”）并在直接消息（DMs）或群组频道中自动回复（如”pong”）。<br>•	自定义触发器：可以监控群组频道中的特定关键词，并设置自定义响应。<br>•	紧急响应：监控频道中的关键词，指示紧急情况，并向更广泛的受众发出警报。</li>
+<li>   网络工具：<br>•	构建和测试本地网络：允许进行消息传递测试，使用更真实的包而非遥测数据。<br>•	测试节点硬件：发送增量大小的数据到无线电缓冲区，以测试消息的整体长度。<br>•	多无线电&#x2F;节点支持：同时监控多达九个网络，并在网络之间灵活发送消息。</li>
+<li>   高级消息功能：<br>•	邮件消息：为其他设备留下消息，当设备上线时以DM形式发送。<br>•	调度器：安排消息发送，如天气更新或每周VHF网络的提醒。<br>•	存储和转发：重放消息，并将消息本地记录到磁盘。<br>•	BBS链接：结合多个机器人以扩展BBS覆盖范围。<br>•	电子邮件&#x2F;短信：将网格消息发送到电子邮件或短信，扩大可见性。</li>
+<li>   交互式AI和数据查询：<br>•	NOAA&#x2F;USGS位置数据：获取本地天气警报、地震、河流流量和潮汐信息。<br>•	Wiki集成：使用维基百科结果查询数据。<br>•	Ollama LLM AI：与Ollama LLM AI交互以进行高级查询和响应。<br>•	卫星通过信息：获取指定位置的卫星通过信息。</li>
+<li>   地理测量和接近警报：<br>•	地理测量：使用收集的GPS数据计算点对点之间的距离，或找到点的中心用于方向定位。<br>•	接近警报：当成员到达配置的经纬度时通知，适用于远程位置如营地。<br>•	高空警报：当网格上出现高空节点时通知。</li>
+<li>   娱乐和游戏：<br>•	内置游戏：享受如DopeWars、Lemonade Stand、BlackJack和VideoPoker等游戏。<br>•	FCC ARRL测验机器人：提供考试题库的测验机器人。<br>•	命令驱动的游戏玩法：发布游戏命令以显示帮助并开始游戏。</li>
+<li>   紧急警报系统（EAS）警报：<br>•	FEMA iPAWS&#x2F;EAS警报：通过互联网连接的节点发送来自FEMA的紧急警报。<br>•	NOAA EAS警报：通过互联网连接的节点发送来自NOAA的紧急警报。<br>•	USGS火山警报：通过互联网连接的节点发送来自USGS的紧急警报。</li>
+<li>   数据报告：<br>•	HTML生成器：内置HTML生成器，用于可视化机器人流量和数据流。</li>
+<li>   强大的消息处理：<br>•	消息分块：自动将超过160个字符的消息分块，以确保跨跳点的更高传递成功率</li>
+</ol>
+<p>TC2-BBS-mesh：<br>1.	消息处理：<br>•	支持发送和接收邮件消息，用户可以通过系统发送私人邮件或公告到特定的频道。<br>•	系统能够处理各种类型的消息，包括文本消息、邮件以及可能的未来扩展消息类型。<br>2.	公告板（Bulletin Boards）：<br>•	提供公告板功能，用户可以在不同的公告板上发布和查看公告。<br>•	公告板可以按主题或频道分类，方便用户查找和参与讨论。<br>3.	邮件系统（Mail System）：<br>•	允许用户发送和接收邮件，支持私人邮件通信。<br>•	邮件可以发送给单个用户或广播到整个频道，增强了通信的灵活性。<br>4.	频道目录（Channel Directory）：<br>•	提供频道目录功能，用户可以添加和查看不同的频道信息。<br>•	频道目录有助于用户发现和加入感兴趣的频道，促进了社区的形成和交流。<br>5.	同步功能：<br>•	支持与其他 BBS 节点的消息和公告同步，增强了网络的连通性和信息的共享。<br>•	用户可以配置同步列表，指定希望与之同步的其他 BBS 节点。<br>如果有需要相关教程，群里@我，抽空写一份。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/12/19/%E4%BD%A0%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AAmeshtastic%E8%AE%BE%E5%A4%87%E4%BD%95%E5%BF%85%E6%98%AF%E6%89%8B%E6%8C%81%E7%BB%88%E7%AB%AF%E2%80%94%E2%80%94GAT562-Mesh-Watch%E5%BC%80%E7%AE%B1%E6%B5%8B%E8%AF%95%E5%8F%8A%E8%AE%BE%E7%BD%AE%E6%95%99%E7%A8%8B/" rel="prev" title="你的下一个meshtastic设备何必是手持终端——GAT562 Mesh Watch开箱测试及设置教程">
+                  <i class="fa fa-angle-left"></i> 你的下一个meshtastic设备何必是手持终端——GAT562 Mesh Watch开箱测试及设置教程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/12/19/%E5%85%B3%E4%BA%8E%E7%BB%99gat562%E6%B7%BB%E5%8A%A0%E4%BC%A0%E6%84%9F%E5%99%A8%E7%9A%84%E6%95%99%E7%A8%8B%EF%BC%88%E4%BB%A5%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%E4%B8%BA%E4%BE%8B%EF%BC%89/" rel="next" title="关于给gat562添加传感器的教程（以温湿度传感器为例）">
+                  关于给gat562添加传感器的教程（以温湿度传感器为例） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">jinsu</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
